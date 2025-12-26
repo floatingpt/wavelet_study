@@ -1,0 +1,13 @@
+name: Wavelet_Transform
+channels:
+ - defaults
+ - conda-forge
+dependencies:
+ - python=3.11
+ - numpy
+ - pytorch
+ - pandas
+ - kagglehub
+ - librosa
+ - yaml
+ - matplotlib
