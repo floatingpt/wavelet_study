@@ -16,12 +16,13 @@ GLOBAL_ROOT = Path(__file__).parent.parent.parent
 from data.sourcing import load_set, sort_files
 from data.get_timeseries import wav_to_matr_arr
 
-dir_list = load_set(GLOBAL_ROOT)
-arr_dict, path_dict = sort_files(dir_list)
-matrices = wav_to_matr_arr(GLOBAL_ROOT)
 
 
-def plot_series(matrices):
+
+def plot_series(matrices, GLOBAL_ROOT):
+    dir_list = load_set(GLOBAL_ROOT)
+    arr_dict, path_dict = sort_files(dir_list)
+    matrices = wav_to_matr_arr(GLOBAL_ROOT)
     zero_wav_matr = matrices[0]
     first_wav = zero_wav_matr[0,:]
     plt.plot(first_wav)
@@ -29,5 +30,3 @@ def plot_series(matrices):
     plt.xlabel("Time(s)")
     plt.ylabel("Amplitude(dB)")
     plt.show()
-
-plot_series(matrices)
